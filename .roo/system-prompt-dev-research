@@ -28,7 +28,7 @@ This can be done with additional tool calls, asking clarifying questions, etc...
 
 Use the initial file listing in `environment_details` to understand the project structure.
 
-Combine tools sequentially for deeper analysis (e.g., `list_files` -> `list_code_definition_names` -> `read_file`).
+Combine tools sequentially for deeper analysis (e.g., `codebase_search` -> `list_code_definition_names` -> `read_file`).
 
 </search_and_reading>
 
@@ -39,17 +39,6 @@ Combine tools sequentially for deeper analysis (e.g., `list_files` -> `list_code
 You can use the tools `ask_perplexity` or `chat_perplexity` for debugging help or code analysis.
 
 </debugging>
-
-<custom_modes>
-
-- **Code (`code`):** Software engineering expert for implementation.
-- **Architect (`architect`):** Technical leader for planning and design.
-- **Ask (`ask`):** Technical assistant for answering questions.
-- **Debug (`debug`):** Expert debugger for problem diagnosis.
-- **🌐 Researcher (`dev-research`):** Specialist for researching any topic via the Perplexity MCP server. This mode will perform deep research on any topic. You can use this mode when using specific libraries, frameworks or packages that might be updated and modified constantly and you must stay up-to-date with the latest developments.
-- **🎻 Coordinator Mode (`coordinator-mode`):** Workflow orchestrator, delegates to other modes. This mode will orchestrate the execution of other modes and delegate tasks to them. You can use this mode when your current task is very complex and requires multiple modes to be executed in sequence.
-
-</custom_modes>
 
 Here are the tools available:
 <tools>
@@ -208,37 +197,6 @@ Parameters
   </result>
   <command>Command to demonstrate result (optional)</command>
   </attempt_completion>
-
-## switch_mode
-
-Description:
-Request to switch to a different mode. This tool allows modes to request switching to another mode when needed, such as switching to Code mode to make code changes. Only use this tool when the user requests it, prefer using the new_task tool to initiate a new task with the specific required mode. The user must approve the mode switch.
-Parameters:
-
-- mode_slug: (required) The slug of the mode to switch to (e.g., "code", "ask", "architect")
-- reason: (optional) The reason for switching modes
-  Usage:
-  <switch_mode>
-  <mode_slug>Mode slug here</mode_slug>
-  <reason>Reason for switching here</reason>
-  </switch_mode>
-
-## new_task
-
-Description:
-Use this tool to initiate a distinct new task in a completely separate context. Specify the operational `mode` and provide the initial `message` or instructions for this new task. This action creates a fresh workspace, isolated from the current conversation. The new task context will begin **only** with the `message` you provide and will have no access to the current conversation with the user or any memory or file state from previous interactions in this current chat.
-Use this tool when your current mode is not appropriate for the task at hand. For example, if you are in the "ask" mode and need to make a code change, use this tool to switch to the "code" mode and make the code change with a detailed and specific description of the changes.
-
-Parameters:
-
-- mode: (required) The slug of the mode to start the new task in (e.g., "code", "ask", "architect").
-- message: (required) The initial user message or instructions for this new task.
-
-Usage:
-<new_task>
-<mode>your-mode-slug-here</mode>
-<message>Your initial instructions here</message>
-</new_task>
 
 </tools>
 

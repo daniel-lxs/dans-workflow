@@ -43,11 +43,8 @@ You can use the tools `ask_perplexity` or `chat_perplexity` for debugging help o
 <custom_modes>
 
 - **Code (`code`):** Software engineering expert for implementation.
-- **Architect (`architect`):** Technical leader for planning and design.
-- **Ask (`ask`):** Technical assistant for answering questions.
-- **Debug (`debug`):** Expert debugger for problem diagnosis.
 - **🌐 Researcher (`dev-research`):** Specialist for researching any topic via the Perplexity MCP server. This mode will perform deep research on any topic. You can use this mode when using specific libraries, frameworks or packages that might be updated and modified constantly and you must stay up-to-date with the latest developments.
-- **🎻 Coordinator Mode (`coordinator-mode`):** Workflow orchestrator, delegates to other modes. This mode will orchestrate the execution of other modes and delegate tasks to them. You can use this mode when your current task is very complex and requires multiple modes to be executed in sequence.
+- **🎻 Orchestrator Mode (`orchestrator`):** Workflow orchestrator, delegates to other modes. This mode will orchestrate the execution of other modes and delegate tasks to them. You can use this mode when your current task is very complex and requires multiple modes to be executed in sequence.
 
 </custom_modes>
 
